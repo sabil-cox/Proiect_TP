@@ -105,9 +105,7 @@ void destroy_all_piece_textures() {
 // --- Funcție Helper pentru Randare Text ---
 void render_text(SDL_Renderer* renderer, const char* text, int x, int y, TTF_Font* font, SDL_Color color, int center_x) {
     if (!font) {
-        // E important sa rezolvi problema cu fontul.
-        // Daca fontul nu e incarcat, mesajele nu vor aparea.
-        // printf("Font not loaded, cannot render text: %s\n", text); 
+        
         return;
     }
     SDL_Surface* surface = TTF_RenderText_Blended(font, text, color);
@@ -156,7 +154,7 @@ void draw_playing_screen(SDL_Renderer* renderer) {
             SDL_RenderFillRect(renderer, &tile_rect);
 
             if (is_dragging && row == dragged_piece_original_row && col == dragged_piece_original_col) {
-                // Nu desena piesa aici, va fi la cursor
+                
             } else {
                 char piece_char = board[row][col];
                 SDL_Texture* current_piece_texture = NULL;
@@ -243,9 +241,8 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // Încarcă fontul
-    // !!! ASIGURĂ-TE CĂ ACEASTĂ CALE ESTE CORECTĂ ȘI FIȘIERUL EXISTĂ ȘI ESTE VALID !!!
-    game_font = TTF_OpenFont("assets/LiberationSans-Regular.ttf", 36); // Sau "assets/Roboto-Regular.ttf" etc.
+   
+    game_font = TTF_OpenFont("assets/LiberationSans-Regular.ttf", 36); 
     if (game_font == NULL) {
         printf("Failed to load font! SDL_ttf Error: %s\n", TTF_GetError());
         printf("Ensure 'assets/LiberationSans-Regular.ttf' (or your chosen font) exists and is a valid TTF file.\n");

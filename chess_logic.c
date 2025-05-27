@@ -11,7 +11,7 @@ int white_turn = 1; // Albul incepe intotdeauna
 // --- Implementarea Functiilor ---
 
 void initialize_board() {
-    //printf("TABLA SAH INITIALIZATA (LOGICA)\n"); // Poti lasa mesaje de debug
+    
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             board[i][j] = ' ';
@@ -50,7 +50,7 @@ int is_valid_pawn_move(int from_x, int from_y, int to_x, int to_y, int direction
         if ((direction == -1 && islower(target_piece)) || (direction == 1 && isupper(target_piece))) {
             return 1;
         }
-    }    // TODO: Adauga logica pentru En Passant aici daca o implementezi
+    }    
     return 0;
 }
 
